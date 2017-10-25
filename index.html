@@ -18,15 +18,23 @@
     <script>
     	// 1. Grab Elements
     		// A. Canvas
+    			const canvas = document.querySelector('#draw');
     			// Set Canvas Properties
     				// Width
+    				canvas.width = innerWidth;
     				// Height
-    		// B. Get Context
+    				canvas.height = innerHeight;
+    		// B. Get Context and set to 2d
+    			const ctx = canvas.getContext('2d');
     			// Set Context Properties	
-    				// StrokeStyle
-    				// LineJoin
-    				// LineCap
-    				// Line Width
+    				// strokeStyle
+    				ctx.strokeStyle = '#BADA55';
+    				// lineJoin (type of corner created when 2 lines meet)
+    				ctx.lineJoin = 'round';
+    				// lineCap (style of end caps)
+    				ctx.lineCap = 'round';
+    				// lineWidth (current line width)
+    				ctx.lineWidth = 10;
     	// 2. Set Drawing Variables
     		// isDrawing
     		// lastX
