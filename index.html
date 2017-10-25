@@ -48,29 +48,37 @@
     		let direction = false;
 
     	// 3. Function for Draw
-    			// if it is drawing then run these
-    			// strokestyle
+    		const draw = (e) => {
+    			// if it is not isDrawing then run these
+    			if (!isDrawing) return;
+    			console.log(e);
+    			// strokeStyle
     				// hsl = hue, saturation, lightness
-    			// beginpath
-    			// moveto
-    			// lineto
+    			// beginPath
+    			// moveTo
+    			// lineTo
     			// call stroke() (intiatlizes the drawing on the DOM)
     			// Update X and Y (ES6 destructuring format)
     		// Update Hue
     		// Update direction
     			// if linewidth is above 100 or below 1 then direction = !directtion
     			// if direction then update lineWith else decrement lineWidth
-
+    		}
     		
 
     	// 4. Event Handlers
     		// MouseDown
+    		canvas.addEventListener('mousedown', () => isDrawing = true);
     			// isDrawing is true;
     			// Update X and Y
 
     		// MouseMove
+    		canvas.addEventListener('mousemove', draw);
     		// MouseUp
+    		canvas.addEventListener('mouseup', () => isDrawing = false);
     		// MouseOut
+    		canvas.addEventListener('mouseout', () => isDrawing = false);
+
     </script>
 </body>
 
