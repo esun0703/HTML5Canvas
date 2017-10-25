@@ -54,21 +54,43 @@
     			console.log(e);
     			// strokeStyle
     				// hsl = hue, saturation, lightness
+    				ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     			// beginPath
+    			ctx.beginPath();
     			// moveTo
+    			ctx.moveTo(lastX, lastY);
     			// lineTo
+    			ctx.lineTo(e.offsetX, e.offsetY);
     			// call stroke() (intiatlizes the drawing on the DOM)
-    			// Update X and Y (ES6 destructuring format)
-    		// Update Hue
-    		// Update direction
-    			// if linewidth is above 100 or below 1 then direction = !directtion
-    			// if direction then update lineWith else decrement lineWidth
+    			ctx.stroke();
+
+	    		// Update X and Y (ES6 destructuring format)
+		    		// changes x and y while moving
+		    		[lastX, lastY] = [e.offsetX, e.offsetY];
+	    		// Update Hue
+	    			hue++;
+
+	    		// Update direction
+	    			// if linewidth is above 100 or below 1 then direction = !directtion
+	    			if(ctx.lineWidth >= 40 || ctx.lineWidth <= 1){
+	    				direction = !direction;
+	    			}
+	    			// if direction then update lineWith else decrement lineWidth
+	    			if(direction){
+	    				ctx.lineWidth++
+	    			} else {
+	    				ctx.lineWidth--
+	    			}
     		}
     		
 
     	// 4. Event Handlers
     		// MouseDown
-    		canvas.addEventListener('mousedown', () => isDrawing = true);
+    		canvas.addEventListener('mousedown', (e) => {
+    			isDrawing = true;
+    			// gives new starting point
+    			[lastX, lastY] = [e.offsetX, e.offsetY];
+    		});
     			// isDrawing is true;
     			// Update X and Y
 
