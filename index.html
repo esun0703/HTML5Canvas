@@ -17,11 +17,12 @@
     <canvas id="draw" width="800" height="800"></canvas>
     <script>
     	// 1. Grab Elements
-    		// Canvas
-    		// Get Context
-    			// Set Context variables
+    		// A. Canvas
+    			// Set Canvas Properties
     				// Width
     				// Height
+    		// B. Get Context
+    			// Set Context Properties	
     				// StrokeStyle
     				// LineJoin
     				// LineCap
@@ -34,19 +35,26 @@
     		// direction
 
     	// 3. Function for Draw
-    		// if it is drawing then run these
+    			// if it is drawing then run these
     			// strokestyle
+    				// hsl = hue, saturation, lightness
     			// beginpath
     			// moveto
     			// lineto
     			// call stroke() (intiatlizes the drawing on the DOM)
-
-    			// Update X and Y
+    			// Update X and Y (ES6 destructuring format)
     		// Update Hue
-    		// Update Stroke
+    		// Update direction
+    			// if linewidth is above 100 or below 1 then direction = !directtion
+    			// if direction then update lineWith else decrement lineWidth
+
+    		
 
     	// 4. Event Handlers
     		// MouseDown
+    			// isDrawing is true;
+    			// Update X and Y
+
     		// MouseMove
     		// MouseUp
     		// MouseOut
